@@ -4,7 +4,7 @@ Redis is super
 
 基于PHP的redis web 管理工具
 
-![http://chenshuo.net/other/ui.png](UI)
+![ui](http://chenshuo.net/other/ui.png)
 
 ### 理念
 最小的依赖，简单直接的实现，人人可修改
