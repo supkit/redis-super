@@ -5,17 +5,12 @@ namespace App;
 use Lib\App;
 use Lib\Redis;
 
-class Index
+class Index extends Base
 {
     /**
      * @var string
      */
     private $displayKeysHtml = '';
-
-    public function __construct()
-    {
-        Redis::connection();
-    }
 
     /**
      * @param int $index
@@ -23,16 +18,15 @@ class Index
      */
     public function entry($index = 0)
     {
-        //var_export($_SERVER); exit;
-        Redis::$redis->select($index);
-        $dbSize = Redis::$redis->dbSize();
-        $keys = Redis::$redis->keys('*');
+        $this->redis->select($index);
+        $dbSize = $this->redis->dbSize();
+        $keys = $this->redis->keys('*');
         $databases = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
         $this->item($keys, $index);
 
-        $redisDir = Redis::$redis->config('GET', 'dir');
-        $port = Redis::$redis->config('GET', 'port');
-        $info = Redis::$redis->info();
+        $redisDir = $this->redis->config('GET', 'dir');
+        $port = $this->redis->config('GET', 'port');
+        $info = $this->redis->info();
         $sidebarWidth = isset($_COOKIE['sidebar']) ? intval($_COOKIE['sidebar']) : 300;
 
         $data = [
@@ -52,9 +46,9 @@ class Index
 
     public function keyList($index)
     {
-        Redis::$redis->select($index);
-        $dbSize = Redis::$redis->dbSize();
-        $keys = Redis::$redis->keys('*');
+        $this->redis->select($index);
+        $dbSize = $this->redis->dbSize();
+        $keys = $this->redis->keys('*');
         $this->item($keys, $index);
 
         $html = $this->displayKeysHtml .'</ul>';
@@ -68,11 +62,11 @@ class Index
     public function search($index, $key)
     {
         sleep(0.5);
-        Redis::$redis->select($index);
+        $this->redis->select($index);
         if (!preg_match('/\*/', $key)) {
             $key = $key . '*';
         }
-        $keys = Redis::$redis->keys($key.'*');
+        $keys = $this->redis->keys($key.'*');
         $this->item($keys, $index);
         $html = $this->displayKeysHtml .'</ul>';
         $data = [
@@ -83,22 +77,22 @@ class Index
 
     public function delete($index, $key, $isFullKey = true)
     {
-        Redis::$redis->select($index);
+        $this->redis->select($index);
         if ($isFullKey) {
-            Redis::$redis->delete($key);
+            $this->redis->delete($key);
             return true;
         }
-        $keys = Redis::$redis->keys($key.'*');
+        $keys = $this->redis->keys($key.'*');
         $keys = array_values($keys);
-        return call_user_func_array([Redis::$redis, 'delete'], $keys);
+        return call_user_func_array([$this->redis, 'delete'], $keys);
     }
 
     public function value($index, $key)
     {
 
-        Redis::$redis->select($index);
-        $type = Redis::$redis->type($key);
-        $value = Redis::$redis->get($key);
+        $this->redis->select($index);
+        $type = $this->redis->type($key);
+        $value = $this->redis->get($key);
         $serialize = false;
         $viewType= 'string';
 
@@ -112,17 +106,17 @@ class Index
         }
 
         if ($type == 2) {
-            $value = Redis::$redis->sRandMember($key, 10);
+            $value = $this->redis->sRandMember($key, 10);
             $viewType = 'set';
         }
 
         if ($type == 3) {
-            $value = Redis::$redis->lRange($key, 0, 100);
+            $value = $this->redis->lRange($key, 0, 100);
             $viewType = 'list';
         }
 
         if ($type == 5) {
-            $value = Redis::$redis->hGetall($key);
+            $value = $this->redis->hGetall($key);
             $viewType = 'hash';
         }
 
@@ -137,7 +131,7 @@ class Index
         return view('view/value-'.$viewType.'.php', $data);
     }
 
-    public function item($keys, $index)
+    private function item($keys, $index)
     {
         sort($keys);
         $namespaces = [];

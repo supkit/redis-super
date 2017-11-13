@@ -9,4 +9,6 @@ class Code
      */
     const SUCCESS_CODE = 200;
     const SUCCESS_MESSAGE = 'ok';
+
+    const ERROR_CODE = 500;
 }

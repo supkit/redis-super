@@ -1,6 +1,6 @@
 <?php
 
-function view ($path, $data) {
+function view ($path, $data = []) {
     extract($data);
     return include $path;
 }
@@ -12,4 +12,12 @@ function route($route, $params = []) {
 
 function assets() {
     return str_replace('index.php', '', Lib\App::uri()).'/assets';
+}
+
+function config($key) {
+    return Lib\Config::value($key);
+}
+
+function redirect($uri) {
+    header('Location: '.$uri);
 }

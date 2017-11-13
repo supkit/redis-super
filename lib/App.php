@@ -91,42 +91,20 @@ class App
     }
 
     /**
-     * 获取配置文件
-     * @return mixed
-     * @throws Exception
-     */
-    public static function getConfig()
-    {
-        if (!file_exists(__DIR__ . '/../config.php')) {
-            throw new Exception('Config file not exits');
-        }
-        return include __DIR__ . '/../config.php';
-    }
-
-    /**
      * 输出错误结果
-     * @param Exception $exception
-     * @param bool $debug 是否开启调试模式，调试模式可以查看详细错误信息
-     * @return bool
+     * @param $message
+     * @param array $data
+     * @return string
      */
-    public static function error($exception, $debug)
+    public static function error($message, $data = [])
     {
-        if (PHP_SAPI == 'cli') {
-            return true;
-        }
         $response = [
-            'code' => $exception->getCode(),
-            'message' => $exception->getMessage()
+            'code' => self::APP_ERROR_CODE,
+            'message' => $message,
+            'data' => $data
         ];
-
-        if ($debug === true) {
-            $response['file'] = $exception->getFile();
-            $response['line'] = $exception->getLine();
-        }
-
         header('Content-type: application/json');
-        echo json_encode($response);
-        return false;
+        return json_encode($response);
     }
 
     /**
