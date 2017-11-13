@@ -1,8 +1,6 @@
 # Redisuper
 
-Redis is super
-
-基于PHP的redis web 管理工具
+Redis is super 基于PHP的redis web 管理工具
 
 demo: [http://chenshuo.net/redisuper](http://chenshuo.net/redisuper)
 
