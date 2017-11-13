@@ -4,6 +4,8 @@ Redis is super
 
 基于PHP的redis web 管理工具
 
+demo: [http://chenshuo.net/redisuper](http://chenshuo.net/redisuper)
+
 ![ui](http://chenshuo.net/other/ui.png)
 
 ### 理念
