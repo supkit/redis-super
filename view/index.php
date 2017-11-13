@@ -53,27 +53,27 @@
                 <col width="70%" />
                 <tr>
                     <td>Redis版本</td>
-                    <td><?=isset($info['redis_version'])?></td>
+                    <td><?=isset($info['redis_version']) ? $info['redis_version'] : ''?></td>
                 </tr>
                 <tr>
                     <td>内存使用情况</td>
-                    <td><?=isset($info['used_memory'])?></td>
+                    <td><?=isset($info['used_memory']) ? $info['used_memory'] : ''?></td>
                 </tr>
                 <tr>
                     <td>操作系统</td>
-                    <td><?=isset($info['os'])?></td>
+                    <td><?=isset($info['os']) ? $info['os'] : ''?></td>
                 </tr>
                 <tr>
                     <td>系统最大内存</td>
-                    <td><?=isset($info['total_system_memory_human'])?></td>
+                    <td><?=isset($info['total_system_memory_human']) ? $info['total_system_memory_human'] : ''?></td>
                 </tr>
                 <tr>
                     <td>当前角色</td>
-                    <td><?=isset($info['role'])?></td>
+                    <td><?=isset($info['role']) ? $info['role'] : ''?></td>
                 </tr>
                 <tr>
                     <td>已连接客户端数量</td>
-                    <td><?=isset($info['connected_clients'])?></td>
+                    <td><?=isset($info['connected_clients']) ? $info['connected_clients'] : ''?></td>
                 </tr>
             </table>
             <h2>配置信息</h2>
