@@ -3,8 +3,8 @@
 </div>
 <div class="data-display type-set">
     <table>
-        <col width="6%" />
-        <col width="80%" />
+        <col width="20%" />
+        <col width="66%" />
         <col width="7%" />
         <col width="7%" />
         <tr>
