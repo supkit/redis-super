@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Lib\\": "lib/",
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "filp/whoops": "^2.1"
+    }
+}

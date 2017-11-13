@@ -1,0 +1,199 @@
+.beauty-animate-show {
+    opacity: 1;
+    transform: translateY(50%);
+    transition: top 0.3s cubic-bezier(.02,.7,.23,.93), opacity 0.3s linear, transform 0.3s ease;
+}
+
+.beauty-animate-hide {
+    opacity: 0;
+    transform: translateY(-40%);
+    transition: all 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.beauty-animate-hide-e {
+    opacity: 0;
+    transform: translateY(-40%);
+    transition: opacity 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000), transform 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.beauty-animate-sideIn {
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: background 0.3s linear;
+}
+
+.beauty-animate-sideOut {
+    background-color: rgba(0, 0, 0, 0);
+    transition: background 0.1s linear;
+}
+
+.beauty-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+}
+.beauty-mask-alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.beauty-alert {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 25px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px #999;
+    position: relative;
+    top: -100px;
+}
+.beauty-alert-message {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 2;
+}
+.beauty-alert-button {
+    margin-top: 30px;
+    text-align: right;
+}
+.beauty-alert-button button {
+    font-weight: 700;
+    padding: 8px 20px;
+    background-color: #3884ff;
+    color: #fff;
+    border: 1px solid #3884ff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+.beauty-message {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 100000;
+    top: 50px;
+}
+.beauty-message-container {
+    width: auto;
+    padding: 10px 25px;
+    border-radius: 3px;
+}
+.beauty-message i {
+    position: relative;
+    margin-right: 5px;
+    padding-left: 3px;
+    top: 1px;
+}
+.beauty-message--info,
+.beauty-message--default {
+    background-color: rgba(32, 160, 255, 0.95);
+    color: #fff;
+    box-shadow: 0 1px 10px rgba(32, 160, 255, 0.24);
+}
+.beauty-message--success {
+    background-color: rgba(19, 206, 102, 0.95);
+    color: #fff;
+    box-shadow: 0 1px 10px rgba(19, 206, 102, 0.24);
+}
+.beauty-message--warning {
+    background-color: rgba(247, 186, 42, 0.95);
+    color: #fff;
+    box-shadow: 0 1px 10px rgba(247, 186, 42, 0.24);
+}
+.beauty-message--danger {
+    background-color: rgba(255, 73, 73, 0.95);
+    color: #fff;
+    box-shadow: 0 1px 10px rgba(255, 73, 73, 0.24);
+}
+
+.beauty-mask-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.beauty-modal {
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px #999;
+    position: relative;
+    top: -100px;
+}
+.beauty-modal h2 {
+    font-size: 16px;
+    margin-bottom: 24px;
+    color: #333;
+}
+.beauty-modal h2 i {
+    float: right;
+    color: #999;
+}
+.beauty-modal h2 i:hover {
+    color: #333;
+}
+.beauty-modal input {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.beauty-modal-action {
+    margin-top: 20px;
+    text-align: right;
+}
+.beauty-modal-ok {
+    font-weight: 700;
+    padding: 8px 20px;
+    background-color: #3884ff;
+    color: #fff;
+    border: 1px solid #3884ff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+.beauty-modal-info {
+    padding: 0px;
+}
+.beauty-modal-cancel {
+    font-weight: 700;
+    padding: 8px 20px;
+    color: #555;
+    border: 1px solid #3884ff;
+    margin-right: 15px;
+    background-color: #fff;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+.beauty-dropdown-action {
+    position: relative;
+}
+.beauty-dropdown {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    right: 20px;
+    top: 35px;
+}
+.beauty-dropdown div {
+    color: #333;
+    padding: 8px 12px;
+    z-index: 111;
+}
+.beauty-dropdown-edit {
+    border-bottom: 1px solid #eee;
+}
