@@ -18,13 +18,13 @@
             <p>Redisuper</p>
         </div>
         <ul class="db-list">
-            <?php foreach ($databases as $i => $db) : ?>
-                <li><a data-index="<?=$i?>" href="<?=route('index.entry', ['index' => $i])?>"<?php if ($i == $index){ echo ' class="active"'; } ?>><i class="fa fa-database"></i><span><?=$db?></span></a></li>
-            <?php endforeach; ?>
+            <?php for ($i = 0; $i < $databases; $i++) : ?>
+                <li><a data-index="<?=$i?>" href="<?=route('index.entry', ['index' => $i])?>"<?php if ($i == $index){ echo ' class="active"'; } ?>><i class="fa fa-database"></i><span><?=$i?></span></a></li>
+            <?php endfor; ?>
         </ul>
     </div>
     <div class="keys" style="width: <?=$sidebarWidth;?>px">
-        <div class="item-database"><span><i class="md-add-circle"></i></span><span class="search"><input type="text"></span></div>
+        <div class="item-database"><span><i class="md-add-circle"></i></span><span class="search"><input type="text"></span><i class="md-search"></i></div>
         <div class="key-list"><?=$keysHtml?></div>
     </div>
     <div class="move"></div>
@@ -206,11 +206,11 @@
         // search bind foucs event
         $('.keys .item-database input').bind('focus', function() {
             $(this).addClass('focus');
-            $('.keys .item-database .md-add-circle').hide();
+            $('.keys .item-database .md-add-circle').addClass('add-hide');
         });
         $('.keys .item-database input').bind('blur', function() {
             $(this).removeClass('focus');
-            $('.keys .item-database .md-add-circle').show();
+            $('.keys .item-database .md-add-circle').removeClass('add-hide');
         });
 
         $('.keys .item-database input').bind('input', function() {

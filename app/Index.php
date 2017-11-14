@@ -21,9 +21,10 @@ class Index extends Base
         $this->redis->select($index);
         $dbSize = $this->redis->dbSize();
         $keys = $this->redis->keys('*');
-        $databases = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
         $this->item($keys, $index);
 
+        $databases = (int)$this->redis->config('GET', 'databases')['databases'];
         $redisDir = $this->redis->config('GET', 'dir');
         $port = $this->redis->config('GET', 'port');
         $info = $this->redis->info();

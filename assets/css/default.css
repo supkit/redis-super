@@ -18,12 +18,10 @@ section {
 }
 .databases::-webkit-scrollbar {
     width: 4px;
-    /*height: 1px;*/
     border-radius: 0;
 }
 .databases::-webkit-scrollbar-thumb {
     border-radius: 0;
-    /*-webkit-box-shadow: inset 0 0 5px rgba(0, 0 , 0, 1);*/
     background: #2271c3;
 }
 .databases::-webkit-scrollbar-track {
@@ -211,15 +209,22 @@ section {
 .keys .item-database input {
     outline: none;
     border: 0;
-    padding: 5px 13px;
+    padding: 7px 13px 7px 34px;
     border-radius: 20px;
     width: 70%;
     background-color: #DBEAF6;
     box-sizing: border-box;
     transition: width ease 0.2s;
 }
+
 .keys .item-database input.focus {
     width: 100%;
+}
+.keys .item-database i.md-search {
+    position: absolute;
+    left: 30px;
+    top: 16px;
+    color: #fff;
 }
 .keys .item-database .md-add-circle {
     color: #DBEAF6;
@@ -227,7 +232,11 @@ section {
     right: 20px;
     top: 10px;
     font-size: 30px;
+    transition: all 0.5s ease;
     cursor: pointer;
+}
+.keys .item-database .add-hide {
+    opacity: 0;
 }
 .keys .item-database .md-add-circle:hover {
     color: #4688C3;
