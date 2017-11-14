@@ -23,14 +23,17 @@ git clone https://github.com/supkit/redisuper.git
 - php redis 扩展
 - composer [主要用于自动加载]
 
-### 目前实现的功能
+### 已完成
 
 - 支持 string set list hash 查询、删除
 - 支持PHP字符串反序列化显示
+- 登陆 [可配置]
 
 ### 规划中
-
+- 进一步规范代码，补充注释
 - key 增加、编辑
-- 登陆 [可配置]
 - 多服务器支持
 - 更好的页面兼容
+
+### 更远的
+- 完整的二次开发文档
