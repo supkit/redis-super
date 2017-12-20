@@ -3,7 +3,6 @@
 namespace App;
 
 use Lib\App;
-use Lib\Redis;
 
 class Index extends Base
 {

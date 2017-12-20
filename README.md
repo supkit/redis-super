@@ -18,6 +18,10 @@ demo: [http://chenshuo.net/redisuper](http://chenshuo.net/redisuper)
 git clone https://github.com/supkit/redisuper.git
 ```
 
+### Nginx
+
+如果您使用的是Nginx作为web服务器，需要配置Nginx支持PAHT_INFO
+
 ### 依赖
 - php > 5.6 建议php7
 - php redis 扩展

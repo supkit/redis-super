@@ -9,6 +9,11 @@ body {
     background-color: #fff;
     font-family: Palatino, Optima, Georgia, serif, "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "SimSun", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", 'Segoe UI', AppleSDGothicNeo-Medium, 'Malgun Gothic', Verdana, Tahoma, sans-serif;
 }
+#app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
 section {
     height: 100%;
     display: flex;
